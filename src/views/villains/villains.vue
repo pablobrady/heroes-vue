@@ -35,6 +35,12 @@
 </template>
 
 <script>
+/**
+ * @typedef {object} Pet
+ * @property {number} id
+ * @property {string} name
+ */
+
 import { mapActions, mapGetters } from 'vuex';
 import ListHeader from '@/components/list-header.vue';
 import Modal from '@/components/modal.vue';
@@ -47,6 +53,9 @@ export default {
   name: 'Villains',
   data() {
     return {
+      /** @type {Pet[]} */
+      pets: [],
+      address: {},
       villainToDelete: null,
       message: '',
       routePath: '/villains',
@@ -68,6 +77,19 @@ export default {
     ...mapGetters('villains', { villains: 'villains' }),
   },
   methods: {
+    foo() {
+      // foo should try to add a number as a pet
+      // and this should not be valid
+      this.addPet(123);
+      return this.items;
+    },
+    /**
+     * @param {string} name
+     */
+    addPet(name) {
+      const pet = { id: this.pets.length + 1, name };
+      return this.pets.push(pet);
+    },
     ...mapActions('villains', [
       'getVillainsAction',
       'deleteVillainAction',
