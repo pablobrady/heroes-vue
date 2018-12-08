@@ -1,15 +1,17 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
+    "target": "esnext",
+    "strict": true,
+    "jsx": "preserve",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "sourceMap": true,
+    "baseUrl": ".",
     "paths": {
       "@/*": ["src/*"]
     },
-    "module": "commonjs",
-    "target": "es2016",
-    "jsx": "preserve",
-    "checkJs": true,
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true
+    "checkJs": true
   },
   "exclude": ["node_modules", "**/node_modules/*"]
 }

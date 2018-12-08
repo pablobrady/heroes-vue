@@ -37,7 +37,7 @@ export default {
       return axios
         .get(`${API}/heroes`)
         .then(response => {
-          if (response.status !== 200) throw Error(response.message);
+          if (response.status !== 200) throw Error(response.data);
           const heroes = response.data;
           commit(GET_HEROES, heroes);
           return heroes;
@@ -48,7 +48,7 @@ export default {
       return axios
         .delete(`${API}/heroes/${hero.id}`)
         .then(response => {
-          if (response.status !== 200) throw Error(response.message);
+          if (response.status !== 200) throw Error(response.data);
           commit(DELETE_HERO, hero);
           return null;
         })
@@ -56,7 +56,7 @@ export default {
     },
     updateHeroAction({ commit }, hero) {
       return axios.put(`${API}/heroes/${hero.id}`, hero).then(response => {
-        if (response.status !== 200) throw Error(response.message);
+        if (response.status !== 200) throw Error(response.data);
         const updatedHero = response.data;
         commit(UPDATE_HERO, updatedHero);
         return updatedHero;
@@ -64,7 +64,7 @@ export default {
     },
     addHeroAction({ commit }, hero) {
       return axios.post(`${API}/heroes`, hero).then(response => {
-        if (response.status !== 201) throw Error(response.message);
+        if (response.status !== 201) throw Error(response.data);
         const addedHero = response.data;
         commit(ADD_HERO, addedHero);
         return addedHero;

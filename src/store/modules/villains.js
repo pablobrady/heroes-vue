@@ -37,7 +37,7 @@ export default {
       return axios
         .get(`${API}/villains`)
         .then(response => {
-          if (response.status !== 200) throw Error(response.message);
+          if (response.status !== 200) throw Error(response.data);
           const villains = response.data;
           commit(GET_VILLAINS, villains);
           return villains;
@@ -48,7 +48,7 @@ export default {
       return axios
         .delete(`${API}/villains/${villain.id}`)
         .then(response => {
-          if (response.status !== 200) throw Error(response.message);
+          if (response.status !== 200) throw Error(response.data);
           commit(DELETE_VILLAIN, villain);
           return null;
         })
@@ -58,7 +58,7 @@ export default {
       return axios
         .put(`${API}/villains/${villain.id}`, villain)
         .then(response => {
-          if (response.status !== 200) throw Error(response.message);
+          if (response.status !== 200) throw Error(response.data);
           const updatedvillain = response.data;
           commit(UPDATE_VILLAIN, updatedvillain);
           return updatedvillain;
@@ -66,7 +66,7 @@ export default {
     },
     addVillainAction({ commit }, villain) {
       return axios.post(`${API}/villains`, villain).then(response => {
-        if (response.status !== 201) throw Error(response.message);
+        if (response.status !== 201) throw Error(response.data);
         const addedVillain = response.data;
         commit(ADD_VILLAIN, addedVillain);
         return addedVillain;
