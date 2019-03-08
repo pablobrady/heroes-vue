@@ -1,5 +1,7 @@
 # Tour of Heroes
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/johnpapa/heroes-vue.svg)](https://greenkeeper.io/)
+
 This project was created to help represent a fundamental app written with Vue. The heroes and villains theme is used throughout the app.
 
 by [John Papa](http://twitter.com/john_papa)
